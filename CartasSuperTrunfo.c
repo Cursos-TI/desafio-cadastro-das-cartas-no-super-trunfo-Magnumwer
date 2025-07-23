@@ -62,8 +62,8 @@ int main(){
     printf("Estado: %c\n", estado1);
     printf("Código: %s\n", codigo1);
     printf("Nome da Cidade: %s\n", nomeDacidade1);
-    printf("População: %d habitantes\n", populacao1); // Corrigido "km²"
-    printf("Área: %.2f km²\n", area1); // Exibir área
+    printf("População: %d habitantes km²\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", NumeroDepontosTuristicos1);
 
@@ -71,9 +71,9 @@ int main(){
     printf("Estado: %c\n", estado2);
     printf("Código: %s\n", codigo2);
     printf("Nome da Cidade: %s\n", nomeDacidade2);
-    printf("População: %d habitantes\n", populacao2); // Corrigido "km²"
-    printf("Área: %.2f km²\n", area2); // Exibir área
-    printf("PIB: %.2f bilhões de reais\n", pib2); // Formatação consistente
+    printf("População: %d habitantes km²\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", NumeroDepontosTuristicos2);
 
     return 0;
