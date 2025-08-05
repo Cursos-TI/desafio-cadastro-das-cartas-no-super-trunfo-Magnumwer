@@ -1,0 +1,183 @@
+#include <stdio.h>
+
+int main(){
+
+    //declarando as variaveis
+
+    char nomeDapais1[50], nomeDapais2[50];
+    unsigned long int populacao1, populacao2;
+    float area1, area2;
+    float pib1, pib2;
+    int numeroDepontosTuristicos1, numeroDepontosTuristicos2;
+    int resultadoPop, resultadoArea, resultadoPib, resultadoNPTuristico,resultadoDensidadeP, resultadoPPcapito, escolhaJogador;
+
+    //Entrada do usuario carta 1
+
+    printf("### Super Trunfo ##\n");
+
+    printf("Carta 1 \n");
+
+        printf("Digite nome do País: \n");
+    scanf(" %[^\n]", nomeDapais1);
+
+    printf("Digite o número de habitantes do Páis: \n");
+    scanf("%lu", &populacao1);
+
+    printf("Digite a área do País em quilômetros quadrados: \n");
+    scanf("%f", &area1);
+
+    printf("Digite o Produto Interno Bruto do País: \n");
+    scanf("%f", &pib1);
+
+    printf("Digite a quantidade de pontos turísticos no País: \n");
+    scanf("%d", &numeroDepontosTuristicos1);
+
+    //Entrada do usuario carta 2
+
+    printf("Carta 2 \n");
+
+    printf("Digite nome do País: \n");
+    scanf(" %[^\n]", nomeDapais2);
+
+    printf("Digite o número de habitantes do País: \n");
+    scanf("%lu", &populacao2);
+
+    printf("Digite a área do País em quilômetros quadrados: \n");
+    scanf("%f", &area2);
+
+    printf("Digite o Produto Interno Bruto do País: \n");
+    scanf("%f", &pib2);
+
+    printf("Digite a quantidade de pontos turísticos no País: \n");
+    scanf("%d", &numeroDepontosTuristicos2);
+
+    // Calcular a Densidade Populacional - carta 1
+
+    float densidadeP1 = (float)populacao1 / area1;
+
+    // Calcular a Densidade Populacional - carta 2
+
+    float densidadeP2 = (float)populacao2 / area2;
+
+    //Menu Interativo
+
+    printf("Escolha o atributo:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Número de pontos turísticos\n");
+    printf("5. Densidade demográfica\n");
+    printf("Escolha:");
+    scanf("%d", &escolhaJogador);
+
+    //Nomes dos paises
+
+    printf("Carta 1: %s - Carta 2: %s\n", nomeDapais1, nomeDapais2);
+
+    //Entrada do menu interativo e resultado do jogo
+
+    switch (escolhaJogador)
+    {
+    case 1:
+        if (populacao1 > populacao2)
+        {
+            printf("População maior: %s com %lu habitantes\n", nomeDapais1, populacao1);
+            printf("### Carta 1 ganhou ###");
+        }
+        else if (populacao1 < populacao2)
+        {
+            printf("População maior: %s com %lu habitantes\n", nomeDapais2, populacao2);
+            printf("### Carta 2 ganhou ###");
+        }
+        else
+        {
+            printf("População: %lu\n", populacao1);
+            printf("População: %lu\n", populacao2);
+            printf("### Jogo empatou! ###\n");
+        }
+        break;    
+    case 2:
+        if (area1 > area2)
+        {
+            printf("Área maior: %s com %.2f km²\n", nomeDapais1, area1);
+            printf("### Carta 1 ganhou ###");
+        }
+        else if (area1 < area2)
+        {
+            printf("Área maior: %s com %.2f km²\n", nomeDapais2, area2);
+            printf("### Carta 2 ganhou ###");
+        }
+        else
+        {
+            printf("Área: %.2f km²\n", area1);
+            printf("Área: %.2f km²\n", area2);
+            printf("### Jogo empatou! ###\n");
+        }
+
+        break;
+    case 3:
+        if (pib1 > pib2)
+        {
+            printf("PIB maior: %s com %.2f bilhões de dólares\n", nomeDapais1, pib1);
+            printf("### Carta 1 ganhou ###");
+        }
+        else if (pib1 < pib2)
+        {
+            printf("PIB maior: %s com %.2f bilhões de dólares\n", nomeDapais2, pib2);
+            printf("### Carta 2 ganhou ###");
+        }
+        else
+        {
+            printf("PIB: %.2f bilhões de dólares\n", pib1);
+            printf("PIB: %.2f bilhões de dólares\n", pib2);
+            printf("### Jogo empatou! ###\n");
+        }
+        break;
+    case 4:
+        if (numeroDepontosTuristicos1 > numeroDepontosTuristicos2)
+        {
+            printf("Mais pontos turísticos: %s com %d atrações\n", nomeDapais1, numeroDepontosTuristicos1);
+            printf("### Carta 1 ganhou ###");
+        }
+        else if (numeroDepontosTuristicos1 < numeroDepontosTuristicos2)
+        {
+            printf("Mais pontos turísticos: %s com %d atrações\n", nomeDapais2, numeroDepontosTuristicos2);
+            printf("### Carta 2 ganhou ###");
+        }
+        else
+        {
+            printf("Pontos turísticos: %d\n", numeroDepontosTuristicos1);
+            printf("Pontos turísticos: %d\n", numeroDepontosTuristicos2);
+            printf("### Jogo empatou! ###\n");
+        }
+        break;
+
+    case 5:
+        if (densidadeP1 < densidadeP2)
+        {
+            printf("Menor densidade demográfica: %s com %.2f hab/km²\n", nomeDapais1, densidadeP1);
+            printf("### Carta 1 ganhou ###");
+        }
+        else if (densidadeP1 > densidadeP2)
+        {
+            printf("Menor densidade demográfica: %s com %.2f hab/km²\n", nomeDapais2, densidadeP2);
+            printf("### Carta 2 ganhou ###");
+        }
+        else
+        {
+            printf("Densidade demográfica: %.2f hab/km²\n", densidadeP1);
+            printf("Densidade demográfica: %.2f hab/km²\n", densidadeP2);
+            printf("### Jogo empatou! ###\n");
+        }
+        break;
+
+    default:
+            printf("opção inválida");
+        break;
+    }
+
+    return 0;
+
+
+
+}

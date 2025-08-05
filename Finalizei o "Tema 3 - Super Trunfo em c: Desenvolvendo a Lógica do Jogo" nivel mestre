@@ -1,0 +1,564 @@
+#include <stdio.h>
+
+int main(){
+
+    //declarando as variaveis
+
+    char nomeDapais1[50], nomeDapais2[50];
+    unsigned long int populacao1, populacao2;
+    float area1, area2;
+    float pib1, pib2;
+    float soma1 = 0, soma2 = 0;
+    int numeroDepontosTuristicos1, numeroDepontosTuristicos2;
+    int resultadoPop, resultadoArea, resultadoPib, resultadoNPTuristico,resultadoDensidadeP, resultadoPPcapito, escolhaJogador1, escolhaJogador2;
+
+    //Entrada do usuario carta 1
+
+    printf("### Super Trunfo ##\n");
+
+    printf("\nCarta 1 \n");
+
+    printf("\nDigite nome do País: \n");
+    scanf(" %[^\n]", nomeDapais1);
+
+    printf("Digite o número de habitantes do Páis: \n");
+    scanf("%lu", &populacao1);
+
+    printf("Digite a área do País em quilômetros quadrados: \n");
+    scanf("%f", &area1);
+
+    printf("Digite o Produto Interno Bruto do País: \n");
+    scanf("%f", &pib1);
+
+    printf("Digite a quantidade de pontos turísticos no País: \n");
+    scanf("%d", &numeroDepontosTuristicos1);
+
+    //Entrada do usuario carta 2
+
+    printf("\nCarta 2 \n");
+
+    printf("\nDigite nome do País: \n");
+    scanf(" %[^\n]", nomeDapais2);
+
+    printf("Digite o número de habitantes do País: \n");
+    scanf("%lu", &populacao2);
+
+    printf("Digite a área do País em quilômetros quadrados: \n");
+    scanf("%f", &area2);
+
+    printf("Digite o Produto Interno Bruto do País: \n");
+    scanf("%f", &pib2);
+
+    printf("Digite a quantidade de pontos turísticos no País: \n");
+    scanf("%d", &numeroDepontosTuristicos2);
+
+    // Calcular a Densidade Populacional - carta 1
+
+    float densidadeP1 = (float)populacao1 / area1;
+
+    // Calcular a Densidade Populacional - carta 2
+
+    float densidadeP2 = (float)populacao2 / area2;
+
+    //Menu Interativo
+
+    printf(" \nEscolha dois atributo.\n Escolha o primeiro:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Número de pontos turísticos\n");
+    printf("5. Densidade demográfica\n");
+    printf("\nEscolha:\n");
+    scanf("%d", &escolhaJogador1);
+
+    switch (escolhaJogador1) {
+    case 1: // População
+        printf("\nEscolha o segundo atributo:\n");
+        printf("2. Área\n");
+        printf("3. PIB\n");
+        printf("4. Pontos turísticos\n");
+        printf("5. Densidade\n");
+        printf("\nEscolha:\n");
+        scanf("%d", &escolhaJogador2);
+
+        //logica
+
+
+        if (escolhaJogador2 == 2) {
+            soma1 = populacao1 + area1;
+            soma2 = populacao2 + area2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n População: %lu\n Área: %.2f\n", populacao1, area1);
+            printf(" O atributo escolhido do Jogador 2: \n População: %lu\n Área: %.2f\n", populacao2, area2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 3) {
+            soma1 = populacao1 + pib1;
+            soma2 = populacao2 + pib2;
+
+            //resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n População: %lu\n PIB: %.2f\n", populacao1, pib1);
+            printf(" O atributo escolhido do Jogador 2: \n População: %lu\n PIB: %.2f\n", populacao2, pib2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //logica
+
+        } else if (escolhaJogador2 == 4) {
+            soma1 = populacao1 + numeroDepontosTuristicos1;
+            soma2 = populacao2 + numeroDepontosTuristicos2;
+
+            //resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n População: %lu\n Numero de Pontos Turísticos: %d\n", populacao1, numeroDepontosTuristicos1);
+            printf(" O atributo escolhido do Jogador 2: \n População: %lu\n Numero de Pontos Turísticos: %d\n", populacao2, numeroDepontosTuristicos2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 5) {
+            soma1 = populacao1 + densidadeP1;
+            soma2 = populacao2 + densidadeP2;
+
+            //resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n População: %lu\n Densidade demografica: %.2f\n", populacao1, densidadeP1);
+            printf(" O atributo escolhido do Jogador 2: \n População: %lu\n Densidade demografica: %.2f\n", populacao2, densidadeP2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Desigualdade
+
+        } else {
+            printf("Opção inválida.\n");
+        }
+    break;
+        
+    case 2: // Área
+        printf("Escolha o segundo atributo:\n");
+        printf("1. População\n");
+        printf("3. PIB\n");
+        printf("4. Pontos turísticos\n");
+        printf("5. Densidade\n");
+        scanf("%d", &escolhaJogador2);
+
+        //logica
+
+        if (escolhaJogador2 == 1) {
+            soma1 = area1 + populacao1;
+            soma2 = area2 + populacao2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Área: %.2f\n População: %lu\n", area1, populacao1);
+            printf(" O atributo escolhido do Jogador 2: \n Área: %.2f\n População: %lu\n", area2, populacao2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 3) {
+            soma1 = area1 + pib1;
+            soma2 = area2 + pib2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Área: %.2f\n PIB: %.2f\n", area1, pib1);
+            printf(" O atributo escolhido do Jogador 2: \n Área: %.2f\n PIB: %.2f\n", area2, pib2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 4) {
+            soma1 = area1 + numeroDepontosTuristicos1;
+            soma2 = area2 + numeroDepontosTuristicos2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Área: %.2f\n Pontos Turísticos: %d\n", area1, numeroDepontosTuristicos1);
+            printf(" O atributo escolhido do Jogador 2: \n Área: %.2f\n Pontos Turísticos: %d\n", area2, numeroDepontosTuristicos2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 5) {
+            soma1 = area1 + densidadeP1;
+            soma2 = area2 + densidadeP2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Área: %.2f\n Densidade Demográfica: %.2f\n", area1, densidadeP1);
+            printf(" O atributo escolhido do Jogador 2: \n Área: %.2f\n Densidade Demográfica: %.2f\n", area2, densidadeP2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Desigualdade
+
+        } else {
+            printf("Opção inválida.\n");
+        }
+    break;
+
+
+    case 3: // PIB
+        printf("Escolha o segundo atributo:\n");
+        printf("1. População\n");
+        printf("2. Área\n");
+        printf("4. Pontos turísticos\n");
+        printf("5. Densidade\n");
+        scanf("%d", &escolhaJogador2);
+
+        //Logica
+
+        if (escolhaJogador2 == 1) {
+            soma1 = pib1 + populacao1;
+            soma2 = pib2 + populacao2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n PIB: %.2f\n População: %lu\n", pib1, populacao1);
+            printf(" O atributo escolhido do Jogador 2: \n PIB: %.2f\n População: %lu\n", pib2, populacao2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 2) {
+            soma1 = pib1 + area1;
+            soma2 = pib2 + area2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n PIB: %.2f\n Área: %.2f\n", pib1, area1);
+            printf(" O atributo escolhido do Jogador 2: \n PIB: %.2f\n Área: %.2f\n", pib2, area2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 4) {
+            soma1 = pib1 + numeroDepontosTuristicos1;
+            soma2 = pib2 + numeroDepontosTuristicos2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n PIB: %.2f\n Pontos Turísticos: %d\n", pib1, numeroDepontosTuristicos1);
+            printf(" O atributo escolhido do Jogador 2: \n PIB: %.2f\n Pontos Turísticos: %d\n", pib2, numeroDepontosTuristicos2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 5) {
+            soma1 = pib1 + densidadeP1;
+            soma2 = pib2 + densidadeP2;
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n PIB: %.2f\n Densidade Demográfica: %.2f\n", pib1, densidadeP1);
+            printf(" O atributo escolhido do Jogador 2: \n PIB: %.2f\n Densidade Demográfica: %.2f\n", pib2, densidadeP2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf("Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Desigualdade
+
+        } else {
+            printf("Opção inválida.\n");
+        }
+    break;
+
+
+    case 4: // Pontos turísticos
+    printf("Escolha o segundo atributo:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("5. Densidade\n");
+    scanf("%d", &escolhaJogador2);
+
+    //Logica
+
+        if (escolhaJogador2 == 1) {
+            soma1 = numeroDepontosTuristicos1 + populacao1;
+            soma2 = numeroDepontosTuristicos2 + populacao2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Pontos Turísticos: %d\n População: %lu\n", numeroDepontosTuristicos1, populacao1);
+            printf(" O atributo escolhido do Jogador 2: \n Pontos Turísticos: %d\n População: %lu\n", numeroDepontosTuristicos2, populacao2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 2) {
+            soma1 = numeroDepontosTuristicos1 + area1;
+            soma2 = numeroDepontosTuristicos2 + area2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Pontos Turísticos: %d\n Área: %.2f\n", numeroDepontosTuristicos1, area1);
+            printf(" O atributo escolhido do Jogador 2: \n Pontos Turísticos: %d\n Área: %.2f\n", numeroDepontosTuristicos2, area2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 3) {
+            soma1 = numeroDepontosTuristicos1 + pib1;
+            soma2 = numeroDepontosTuristicos2 + pib2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Pontos Turísticos: %d\n PIB: %.2f\n", numeroDepontosTuristicos1, pib1);
+            printf(" O atributo escolhido do Jogador 2: \n Pontos Turísticos: %d\n PIB: %.2f\n", numeroDepontosTuristicos2, pib2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 5) {
+            soma1 = numeroDepontosTuristicos1 + densidadeP1;
+            soma2 = numeroDepontosTuristicos2 + densidadeP2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Pontos Turísticos: %d\n Densidade Demográfica: %.2f\n", numeroDepontosTuristicos1, densidadeP1);
+            printf(" O atributo escolhido do Jogador 2: \n Pontos Turísticos: %d\n Densidade Demográfica: %.2f\n", numeroDepontosTuristicos2, densidadeP2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Desigualdade
+
+        } else {
+            printf("Opção inválida.\n");
+        }
+    break;
+
+
+    case 5: // Densidade demográfica
+    printf("Escolha o segundo atributo:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos turísticos\n");
+    scanf("%d", &escolhaJogador2);
+
+    //Logica
+
+        if (escolhaJogador2 == 1) {
+            soma1 = densidadeP1 + populacao1;
+            soma2 = densidadeP2 + populacao2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Densidade Demográfica: %.2f\n População: %lu\n", densidadeP1, populacao1);
+            printf(" O atributo escolhido do Jogador 2: \n Densidade Demográfica: %.2f\n População: %lu\n", densidadeP2, populacao2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 2) {
+            soma1 = densidadeP1 + area1;
+            soma2 = densidadeP2 + area2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Densidade Demográfica: %.2f\n Área: %.2f\n", densidadeP1, area1);
+            printf(" O atributo escolhido do Jogador 2: \n Densidade Demográfica: %.2f\n Área: %.2f\n", densidadeP2, area2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //logica
+
+        } else if (escolhaJogador2 == 3) {
+            soma1 = densidadeP1 + pib1;
+            soma2 = densidadeP2 + pib2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Densidade Demográfica: %.2f\n PIB: %.2f\n", densidadeP1, pib1);
+            printf(" O atributo escolhido do Jogador 2: \n Densidade Demográfica: %.2f\n PIB: %.2f\n", densidadeP2, pib2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Logica
+
+        } else if (escolhaJogador2 == 4) {
+            soma1 = densidadeP1 + numeroDepontosTuristicos1;
+            soma2 = densidadeP2 + numeroDepontosTuristicos2;
+
+            //Resultado
+
+            printf(" O jogador 1 escolheu: %s.\n O Jogador 2 escolheu: %s\n", nomeDapais1, nomeDapais2);
+            printf(" O atributo escolhido do Jogador 1: \n Densidade Demográfica: %.2f\n Pontos Turísticos: %d\n", densidadeP1, numeroDepontosTuristicos1);
+            printf(" O atributo escolhido do Jogador 2: \n Densidade Demográfica: %.2f\n Pontos Turísticos: %d\n", densidadeP2, numeroDepontosTuristicos2);
+            printf(" A soma do jogador 1: %.2f\n A soma do jogador 2: %.2f\n", soma1, soma2);
+
+            //Vencedor
+
+            printf(" Resultado: %s\n",
+            (soma1 > soma2) ? "Carta 1 venceu" :
+            (soma2 > soma1) ? "Carta 2 venceu" :
+            "Empate");
+
+            //Desigualdade
+
+        } else {
+            printf(" Opção inválida.\n");
+        }
+    break;
+
+        break;
+
+        //Repetição de atributo
+
+    default:
+        printf(" Atributo inválido.\n Tente novamente.\n");
+        break;
+    }
+
+    return 0;
+
+}
